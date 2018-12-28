@@ -9,6 +9,7 @@ export default new Vuex.Store({
         currentPokemon: {},
         modal: {
             show: false,
+            data: {}
         }
     },
 
@@ -17,12 +18,16 @@ export default new Vuex.Store({
             state.modal = { ...modal }
         },
 
+        updateDataModal(state, newData) {
+            state.modal.data = {...state.modal.data, ...newData }
+        },
+
         setPokemonList(state, list) {
             state.pokemonList = [...list]
         },
-    },
-    
-    actions: {
 
-    }
+        updatePokemonList(state, list) {
+            state.pokemonList = [...list]
+        },
+    },
 })

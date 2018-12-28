@@ -22,12 +22,6 @@
             }
         },
 
-        methods: {
-            openModal() {
-                this.$store.commit('setModal', { show: true })
-            }
-        },
-
         mounted() {
             
             gnrlService('pokemon', { limit: 50 })
@@ -36,16 +30,6 @@
 
                 this.loading = false
                 this.$store.commit('setPokemonList', list)
-
-                list.map((pokemon, index) => {
-                    if (index === 0) {
-                        gnrlService(pokemon.url, {}, 'GET', false)
-                        .then(({ data }) => {
-                                console.log(data)
-                        }) 
-                    }
-                })
-                
             })
         },
     }

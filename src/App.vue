@@ -1,6 +1,6 @@
 <template lang="pug">
     #app
-        Modal
+        Modal(v-if="modal.show")
         Header
         Main
 </template>
@@ -10,8 +10,14 @@
     import Main from '@/components/Main.vue'
     import Modal from '@/components/Modal.vue'
 
+    import { mapState } from 'vuex'
+
     export default {
         name: 'app',
+
+        computed: {
+            ...mapState(['modal'])
+        },
 
         components: {
             Main,
@@ -22,6 +28,8 @@
 </script>
 
 <style lang="stylus">
+    @import url('https://fonts.googleapis.com/css?family=Sarabun');
+
     body, html
         margin: 0px
         paddding: 0px
